@@ -8,11 +8,11 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Events/Void Event Channel")]
 public class VoidEventChannelSO : DescriptionBaseSO
 {
-    public UnityAction Response;
+    public UnityAction OnEventRaised;
 
     public void RaiseEvent()
     {
-        Response?.Invoke();
+        OnEventRaised?.Invoke();
     }
 }
 
