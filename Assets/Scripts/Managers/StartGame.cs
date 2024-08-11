@@ -5,20 +5,13 @@ using UnityEngine;
 /// </summary>
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class StartGame : MonoBehaviour, IShootable
+public class StartGame : MonoBehaviour
 {
     [Header("broadcast on channel:")]
     [SerializeField] private VoidEventChannelSO StartGameEvent;
 
-
     private void OnMouseDown()
     {
-        OnShot();
-    }
-
-    public void OnShot()
-    {
         StartGameEvent.RaiseEvent();
-        Debug.Log("rasaised start game event");
     }
 }
