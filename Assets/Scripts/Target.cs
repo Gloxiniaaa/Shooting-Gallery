@@ -13,17 +13,26 @@ public class Target : MonoBehaviour, IShootable
 
     private void OnEnable()
     {
-        transform.localRotation = quaternion.identity;
-        _isShot = false;
-        ChooseSprite();
-        AppearAndSwing();
-        Slide();
+        Initialize();
     }
 
-    private void ChooseSprite()
+    private void Initialize()
     {
+        _isShot = false;
+        transform.localRotation = quaternion.identity;
         _targetSpriteRenderer.sprite = _targetDataOS.RandomFrontSprite();
         _StickSpriteRenderer.sprite = _targetDataOS.RandomStickSprite();
+        _direction = UnityEngine.Random.Range(0, 2) < 1 ? 1 : -1;
+        transform.localScale = new Vector2(_direction, 1) * transform.localScale.y;
+    }
+
+    public void Spawn(SpawnPosition config)
+    {
+        _targetSpriteRenderer.sortingOrder = config.SortingOrder;
+        _StickSpriteRenderer.sortingOrder = config.SortingOrder;
+        transform.position = new Vector3(config.X, config.Y, 0);
+        AppearAndSwing();
+        Slide();
     }
 
     private void OnMouseDown()
@@ -46,7 +55,7 @@ public class Target : MonoBehaviour, IShootable
         sequence.Append(transform.DOLocalRotate(_targetDataOS.EndFlipRotation / 2f, _targetDataOS.FlipDuration * 0.4f).OnComplete(
             () => _targetSpriteRenderer.sprite = _targetDataOS.BackSprite));
         sequence.Append(transform.DOLocalRotate(_targetDataOS.EndFlipRotation, _targetDataOS.FlipDuration * 0.6f).SetEase(Ease.OutBounce));
-        sequence.AppendInterval(0.5f);
+        sequence.AppendInterval(0.3f);
         sequence.Append(transform.DOLocalMoveY(transform.localPosition.y - _targetDataOS.Height, 0.3f).SetEase(Ease.InBack));
         sequence.OnComplete(() => gameObject.SetActive(false));
     }
