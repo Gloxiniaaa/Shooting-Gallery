@@ -1365,7 +1365,7 @@ Transform:
   m_GameObject: {fileID: 377265185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.52, y: 0, z: 0}
+  m_LocalPosition: {x: -10.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2638,7 +2638,7 @@ Transform:
   m_GameObject: {fileID: 702240051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.52, y: 0, z: 0}
+  m_LocalPosition: {x: -10.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3145,7 +3145,7 @@ Transform:
   m_GameObject: {fileID: 929167368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.52, y: 0, z: 0}
+  m_LocalPosition: {x: -10.48, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3767,6 +3767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162489497}
+  - component: {fileID: 1162489498}
   m_Layer: 0
   m_Name: Wave2
   m_TagString: Untagged
@@ -3783,7 +3784,7 @@ Transform:
   m_GameObject: {fileID: 1162489496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.21, y: -4, z: 0}
+  m_LocalPosition: {x: -0.26999998, y: -3.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3797,6 +3798,19 @@ Transform:
   - {fileID: 929167369}
   m_Father: {fileID: 87956895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162489498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162489496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ba455ca40f7d64f98f9d79249d10ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 1.9
 --- !u!1 &1177909245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3890,6 +3904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1183932224}
+  - component: {fileID: 1183932225}
   m_Layer: 0
   m_Name: Wave3
   m_TagString: Untagged
@@ -3906,7 +3921,7 @@ Transform:
   m_GameObject: {fileID: 1183932223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.21, y: -5.5, z: 0}
+  m_LocalPosition: {x: -0.19999999, y: -5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3920,6 +3935,19 @@ Transform:
   - {fileID: 377265186}
   m_Father: {fileID: 87956895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183932225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183932223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ba455ca40f7d64f98f9d79249d10ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 1.7
 --- !u!1 &1198023128
 GameObject:
   m_ObjectHideFlags: 0
@@ -6144,6 +6172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938627553}
+  - component: {fileID: 1938627554}
   m_Layer: 0
   m_Name: Wave1
   m_TagString: Untagged
@@ -6160,7 +6189,7 @@ Transform:
   m_GameObject: {fileID: 1938627552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.21, y: -2.5, z: 0}
+  m_LocalPosition: {x: -0.2, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6174,6 +6203,19 @@ Transform:
   - {fileID: 702240052}
   m_Father: {fileID: 87956895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1938627554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938627552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ba455ca40f7d64f98f9d79249d10ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 1.8
 --- !u!1 &1943182318
 GameObject:
   m_ObjectHideFlags: 0
