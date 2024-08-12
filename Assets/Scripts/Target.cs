@@ -11,6 +11,10 @@ public class Target : MonoBehaviour, IShootable
     private int _direction = 1;
     private bool _isShot;
 
+    [Header("Broadcast on channel:")]
+    [SerializeField] private GameObjectEventChannelSO _shotATargetEvent;
+    [SerializeField] private VoidEventChannelSO _targetReachedEndEvent;
+
     private void OnEnable()
     {
         Initialize();
@@ -45,7 +49,17 @@ public class Target : MonoBehaviour, IShootable
         if (!_isShot)
         {
             _isShot = true;
+            _shotATargetEvent.RaiseEvent(this.gameObject);
             FlipAndDisappear();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            _targetReachedEndEvent.RaiseEvent();
+            gameObject.SetActive(false);
         }
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5398359926464562591}
   - component: {fileID: 2579650734925869456}
   - component: {fileID: 2286798341392817068}
+  - component: {fileID: 5613281833343417518}
   m_Layer: 0
   m_Name: TargetDuck
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2863471084801285671}
@@ -85,6 +86,35 @@ MonoBehaviour:
   _targetDataOS: {fileID: 11400000, guid: 1aad55e5d656d5641bb778ea68e54618, type: 2}
   _targetSpriteRenderer: {fileID: 118431642403902975}
   _StickSpriteRenderer: {fileID: 8432880022611541213}
+  _shotATargetEvent: {fileID: 11400000, guid: e8be7615331dead4d8900c9071f78528, type: 2}
+  _targetReachedEndEvent: {fileID: 11400000, guid: 47cf206305d76fb459ad5da0d06da6a3, type: 2}
+--- !u!50 &5613281833343417518
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115740504951244763}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5218169914912774447
 GameObject:
   m_ObjectHideFlags: 0
