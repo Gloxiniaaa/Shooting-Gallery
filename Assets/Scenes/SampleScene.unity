@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 262284933}
   - component: {fileID: 262284932}
   m_Layer: 0
-  m_Name: TargetDuck1
+  m_Name: TargetDuck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1028,7 +1028,7 @@ Transform:
   m_GameObject: {fileID: 262284930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.24, y: 0, z: 0}
+  m_LocalPosition: {x: -5.68, y: -2.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1050,6 +1050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetDataOS: {fileID: 11400000, guid: 1aad55e5d656d5641bb778ea68e54618, type: 2}
   _targetSpriteRenderer: {fileID: 1227609822}
+  _StickSpriteRenderer: {fileID: 548483057}
 --- !u!58 &262284933
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4190,7 +4191,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d2e50b62f0ff4b84c99b375cde168944, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4789,7 +4790,6 @@ GameObject:
   - component: {fileID: 1509804124}
   - component: {fileID: 1509804123}
   - component: {fileID: 1509804122}
-  - component: {fileID: 1509804125}
   m_Layer: 0
   m_Name: StartGameTarget
   m_TagString: Untagged
@@ -4863,20 +4863,6 @@ Transform:
   - {fileID: 1397580934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1509804125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509804121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f873e3751f94384b826c216eb209728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetDataOS: {fileID: 11400000, guid: 52d525a84a1e6084e851f8faa6089ec8, type: 2}
-  _targetSpriteRenderer: {fileID: 1458611119}
 --- !u!1 &1536178845
 GameObject:
   m_ObjectHideFlags: 0
