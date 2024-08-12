@@ -10,10 +10,11 @@ public class Target : MonoBehaviour, IShootable
     [SerializeField] private SpriteRenderer _StickSpriteRenderer;
     private int _direction = 1;
     private bool _isShot;
-
+    [SerializeField] private AudioGroupSO _onShotAudios;
     [Header("Broadcast on channel:")]
     [SerializeField] private GameObjectEventChannelSO _shotATargetEvent;
     [SerializeField] private VoidEventChannelSO _targetReachedEndEvent;
+    [SerializeField] private AudioEventChannelSO _sfxChannel;
 
     private void OnEnable()
     {
@@ -50,6 +51,7 @@ public class Target : MonoBehaviour, IShootable
         {
             _isShot = true;
             _shotATargetEvent.RaiseEvent(this.gameObject);
+            _sfxChannel.RaiseEvent(_onShotAudios);
             FlipAndDisappear();
         }
     }

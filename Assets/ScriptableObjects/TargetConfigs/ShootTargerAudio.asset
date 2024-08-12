@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34dd041ba10edd47907b6317348829c, type: 3}
+  m_Name: ShootTargerAudio
+  m_EditorClassIdentifier: 
+  _audioClips:
+  - {fileID: 8300000, guid: f91ad5a95e95ff647ac58b3416313196, type: 3}
+  - {fileID: 8300000, guid: 60a65c1a51fef6d4980b02f54b5ea14e, type: 3}
+  - {fileID: 8300000, guid: 758143581ae4a8d40a2bcaf243999d8c, type: 3}
+  - {fileID: 8300000, guid: 5343d2ea55593d345bc4d0c49081516f, type: 3}
+  - {fileID: 8300000, guid: ff6f557e679e442428e5a32c5ddc3078, type: 3}
+  - {fileID: 8300000, guid: ff6f557e679e442428e5a32c5ddc3078, type: 3}
+  Volume: 1
