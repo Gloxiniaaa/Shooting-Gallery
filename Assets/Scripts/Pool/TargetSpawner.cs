@@ -22,8 +22,9 @@ public class TargetSpawner : MonoBehaviour
 
     [Header("Listen on channel:")]
     [SerializeField] private VoidEventChannelSO _startGameEvent;
-    [SerializeField] private VoidEventChannelSO _shotAllTargetEvent;
+    [SerializeField] private TargetEventChannelSO _returnToPoolEvent;
 
+    private int _numCurrentTargetAppear;
 
     private void Awake()
     {
@@ -33,31 +34,29 @@ public class TargetSpawner : MonoBehaviour
     private void OnEnable()
     {
         _startGameEvent.OnEventRaised += Spawn;
-        _shotAllTargetEvent.OnEventRaised += Spawn;
+        _returnToPoolEvent.OnEventRaised += Release;
     }
 
     private void Spawn()
     {
-        StartCoroutine(SpawnDelay(_spawnConfig.IntervalBetweenSpawnWaves));
-    }
-
-    private IEnumerator SpawnDelay(float timeout)
-    {
-        yield return new WaitForSeconds(timeout);
         _startASpawnWaveEvent.RaiseEvent(_nbTargetEachWave);
+        _numCurrentTargetAppear = _nbTargetEachWave;
         _spawnConfig.ShufflePos();
         for (int i = 0; i < _nbTargetEachWave; ++i)
         {
             Target target = _pool.Get();
             target.Spawn(_spawnConfig.spawnPositions[i]);
-            StartCoroutine(Release(target));
         }
     }
 
-    private IEnumerator Release(Target target)
+    private void Release(Target target)
     {
-        yield return new WaitForSeconds(_spawnConfig.TargetLifeTime);
         _pool.Release(target);
+        _numCurrentTargetAppear--;
+        if (_numCurrentTargetAppear == 0)
+        {
+            Spawn();
+        }
     }
 
 
@@ -86,6 +85,6 @@ public class TargetSpawner : MonoBehaviour
     private void OnDisable()
     {
         _startGameEvent.OnEventRaised -= Spawn;
-        _shotAllTargetEvent.OnEventRaised -= Spawn;
+        _returnToPoolEvent.OnEventRaised -= Release;
     }
 }

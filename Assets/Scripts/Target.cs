@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
@@ -12,9 +13,10 @@ public class Target : MonoBehaviour, IShootable
     private bool _isShot;
     [SerializeField] private AudioGroupSO _onShotAudios;
     [Header("Broadcast on channel:")]
-    [SerializeField] private GameObjectEventChannelSO _shotATargetEvent;
-    [SerializeField] private VoidEventChannelSO _targetReachedEndEvent;
+    [SerializeField] private TargetEventChannelSO _shotATargetEvent;
+    [SerializeField] private TargetEventChannelSO _returnToPoolEvent;
     [SerializeField] private AudioEventChannelSO _sfxChannel;
+
 
     private void OnEnable()
     {
@@ -50,18 +52,18 @@ public class Target : MonoBehaviour, IShootable
         if (!_isShot)
         {
             _isShot = true;
-            _shotATargetEvent.RaiseEvent(this.gameObject);
+            _shotATargetEvent.RaiseEvent(this);
             _sfxChannel.RaiseEvent(_onShotAudios);
             FlipAndDisappear();
         }
     }
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Finish"))
         {
-            _targetReachedEndEvent.RaiseEvent();
-            gameObject.SetActive(false);
+            _returnToPoolEvent.RaiseEvent(this);
         }
     }
 
@@ -73,7 +75,7 @@ public class Target : MonoBehaviour, IShootable
         sequence.Append(transform.DOLocalRotate(_targetDataOS.EndFlipRotation, _targetDataOS.FlipDuration * 0.6f).SetEase(Ease.OutBounce));
         sequence.AppendInterval(0.3f);
         sequence.Append(transform.DOLocalMoveY(transform.localPosition.y - _targetDataOS.Height, 0.3f).SetEase(Ease.InBack));
-        sequence.OnComplete(() => gameObject.SetActive(false));
+        sequence.OnComplete(() => _returnToPoolEvent.RaiseEvent(this));
     }
 
     private void AppearAndSwing()

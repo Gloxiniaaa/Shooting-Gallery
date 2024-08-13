@@ -87,8 +87,9 @@ MonoBehaviour:
   _targetSpriteRenderer: {fileID: 118431642403902975}
   _StickSpriteRenderer: {fileID: 8432880022611541213}
   _onShotAudios: {fileID: 11400000, guid: 89d23775090e0764db6c4b87f6768dbc, type: 2}
-  _shotATargetEvent: {fileID: 11400000, guid: e8be7615331dead4d8900c9071f78528, type: 2}
   _targetReachedEndEvent: {fileID: 11400000, guid: 47cf206305d76fb459ad5da0d06da6a3, type: 2}
+  _shotATargetEvent: {fileID: 11400000, guid: f15d9c445717a9c46891e4f283e2bb3b, type: 2}
+  _returnToPoolEvent: {fileID: 11400000, guid: 6ede477d369bf2c458c894d492601a39, type: 2}
   _sfxChannel: {fileID: 11400000, guid: 07c0624d0b8689c4eb18cbc63ba1115c, type: 2}
 --- !u!50 &5613281833343417518
 Rigidbody2D:

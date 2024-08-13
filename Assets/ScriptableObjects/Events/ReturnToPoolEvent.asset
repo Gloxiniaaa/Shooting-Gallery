@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9714a681982683f428fe50953daf9c03, type: 3}
-  m_Name: ShotATargetEvent
+  m_Name: ReturnToPoolEvent
   m_EditorClassIdentifier: 
-  description: Raised when a target has been shot, tell shooter to know he shot a
-    target, tell VFX to spawn effect
+  description: fired by a target whenever it finishes its disappear animation or
+    reaches the end/finish. Listened by target spawner to release the target, return
+    it to pool. if all targets have returned to pool, spawner spawn a new wave of
+    targets

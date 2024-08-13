@@ -8,10 +8,13 @@ using DG.Tweening;
 [RequireComponent(typeof(CircleCollider2D))]
 public class StartGame : MonoBehaviour
 {
-    [Header("broadcast on channel:")]
-    [SerializeField] private VoidEventChannelSO StartGameEvent;
     [SerializeField] private SpriteRenderer _targetSpriteRenderer;
     [SerializeField] private Sprite _backSprite;
+    [SerializeField] private AudioGroupSO _onShotAudios;
+
+    [Header("broadcast on channel:")]
+    [SerializeField] private VoidEventChannelSO StartGameEvent;
+    [SerializeField] private AudioEventChannelSO _sfxChannel;
     private bool _isShot = false;
 
     private void OnMouseDown()
@@ -25,6 +28,7 @@ public class StartGame : MonoBehaviour
         {
             _isShot = true;
             StartGameEvent.RaiseEvent();
+            _sfxChannel.RaiseEvent(_onShotAudios);
             FlipAndDisappear();
         }
     }
