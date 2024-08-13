@@ -1,4 +1,3 @@
-using System.Collections;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
@@ -61,7 +60,7 @@ public class Target : MonoBehaviour, IShootable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Finish"))
+        if (!_isShot && other.CompareTag("Finish"))
         {
             _returnToPoolEvent.RaiseEvent(this);
         }

@@ -1,15 +1,13 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
+using MyObjectPool;
 
 public class TargetSpawner : MonoBehaviour
 {
-    [SerializeField] private Target _targetPrefab;
-    private ObjectPool<Target> _pool;
 
     [Header("Pool variables")]
-    [SerializeField] private int _defaultCapacity;
-    [SerializeField] private int _maxSize;
+    private ObjectPool<Target> _pool;
+    [SerializeField] private Target _targetPrefab;
+    [SerializeField] private int _startQuantity;
 
 
     [Header("Spawn Configuration")]
@@ -20,6 +18,7 @@ public class TargetSpawner : MonoBehaviour
     [Header("Broadcast on channel:")]
     [SerializeField] private IntEventChannelSO _startASpawnWaveEvent;
 
+
     [Header("Listen on channel:")]
     [SerializeField] private VoidEventChannelSO _startGameEvent;
     [SerializeField] private TargetEventChannelSO _returnToPoolEvent;
@@ -28,7 +27,7 @@ public class TargetSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _pool = new ObjectPool<Target>(OnCreateInstance, OnGetFromPool, OnReturnToPool, OnDestroyPooledObject, true, _defaultCapacity, _maxSize);
+        _pool = new ObjectPool<Target>(_targetPrefab.gameObject, null, _startQuantity);
     }
 
     private void OnEnable()
@@ -44,43 +43,22 @@ public class TargetSpawner : MonoBehaviour
         _spawnConfig.ShufflePos();
         for (int i = 0; i < _nbTargetEachWave; ++i)
         {
-            Target target = _pool.Get();
+            Target target = _pool.GetAnInstance();
+            target.gameObject.SetActive(true);
             target.Spawn(_spawnConfig.spawnPositions[i]);
         }
     }
 
     private void Release(Target target)
     {
-        _pool.Release(target);
+        target.gameObject.SetActive(false);
+        _pool.ReturnToPool(target);
         _numCurrentTargetAppear--;
         if (_numCurrentTargetAppear == 0)
         {
             Spawn();
         }
     }
-
-
-    #region Object Pool callback
-    private Target OnCreateInstance()
-    {
-        return Instantiate(_targetPrefab);
-    }
-
-    private void OnGetFromPool(Target target)
-    {
-        target.gameObject.SetActive(true);
-    }
-
-    private void OnReturnToPool(Target target)
-    {
-        target.gameObject.SetActive(false);
-    }
-
-    private void OnDestroyPooledObject(Target target)
-    {
-        Destroy(target.gameObject);
-    }
-    #endregion
 
     private void OnDisable()
     {
