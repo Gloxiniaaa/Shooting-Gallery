@@ -7,7 +7,6 @@ public class PlusScore : MonoBehaviour
     [SerializeField] private ScoreSpiteSO _scoreSprites;
 
 
-
     private void OnEnable()
     {
         PlayEffect();
@@ -16,10 +15,10 @@ public class PlusScore : MonoBehaviour
     private void PlayEffect()
     {
         transform.localScale = Vector3.zero;
-        transform.rotation = new Quaternion(0, 0, Random.Range(-0.05f, 0.05f), transform.rotation.w);
+        transform.rotation = new Quaternion(0, 0, Random.Range(-0.07f, 0.07f), transform.rotation.w);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOScale(1, 0.3f).SetEase(Ease.OutBack));
-        sequence.AppendInterval(0.5f);
+        sequence.AppendInterval(0.3f);
         sequence.Append(transform.DOScale(0, 0.2f).SetEase(Ease.InBack));
         sequence.OnComplete(() => gameObject.SetActive(false));
     }

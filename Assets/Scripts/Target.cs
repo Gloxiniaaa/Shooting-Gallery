@@ -79,9 +79,20 @@ public class Target : MonoBehaviour, IShootable
 
     private void AppearAndSwing()
     {
-        transform.DOLocalMoveY(transform.localPosition.y + _targetDataOS.Height, 0.5f).SetEase(Ease.OutBack).OnComplete(
-            () => transform.DOLocalMoveY(transform.localPosition.y + _targetDataOS.SwingRange, _targetDataOS.SwingDuration).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo)
-        );
+        if (UnityEngine.Random.Range(0, 2) == 1)
+        {
+            //up first
+            transform.DOLocalMoveY(transform.localPosition.y + _targetDataOS.Height - _targetDataOS.SwingRange / 2, 0.5f).SetEase(Ease.OutBack).OnComplete(
+                () => transform.DOLocalMoveY(transform.localPosition.y + _targetDataOS.SwingRange, _targetDataOS.SwingDuration).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo)
+            );
+        }
+        else
+        {
+            //down first
+            transform.DOLocalMoveY(transform.localPosition.y + _targetDataOS.Height + _targetDataOS.SwingRange / 2, 0.5f).SetEase(Ease.OutBack).OnComplete(
+                () => transform.DOLocalMoveY(transform.localPosition.y - _targetDataOS.SwingRange, _targetDataOS.SwingDuration).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo)
+            );
+        }
     }
 
     private void Slide()
