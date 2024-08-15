@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class Target : MonoBehaviour, IShootable
+public class Target : MonoBehaviour
 {
     [SerializeField] private TargetDataOS _targetDataOS;
     [SerializeField] private SpriteRenderer _targetSpriteRenderer;
@@ -46,7 +46,7 @@ public class Target : MonoBehaviour, IShootable
         OnShot();
     }
 
-    public void OnShot()
+    private void OnShot()
     {
         if (!_isShot)
         {
@@ -56,7 +56,6 @@ public class Target : MonoBehaviour, IShootable
             FlipAndDisappear();
         }
     }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
