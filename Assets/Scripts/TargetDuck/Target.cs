@@ -22,6 +22,11 @@ public class Target : MonoBehaviour
         Initialize();
     }
 
+
+    /// <summary>
+    /// Choose a random duck and stick sprite from "_targetDataOS".
+    /// Randomly choose left or right direction
+    /// </summary>
     private void Initialize()
     {
         _isShot = false;
@@ -32,6 +37,12 @@ public class Target : MonoBehaviour
         transform.localScale = new Vector2(_direction, 1) * transform.localScale.y;
     }
 
+
+    /// <summary>
+    /// Assign sorting order and position from "config".
+    /// Then play the needed animtion.
+    /// </summary>
+    /// <param name="config">stores the desired pos and sorting order</param>
     public void Spawn(SpawnPosition config)
     {
         _targetSpriteRenderer.sortingOrder = config.SortingOrder;
@@ -46,6 +57,10 @@ public class Target : MonoBehaviour
         OnShot();
     }
 
+
+    /// <summary>
+    /// if has not been shot, then trigger "_shotATargetEvent", play shot audio, then play the disappear animation
+    /// </summary>
     private void OnShot()
     {
         if (!_isShot)
@@ -65,6 +80,10 @@ public class Target : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// flip to the back sprite, then dive down, disappear into the water
+    /// </summary>
     private void FlipAndDisappear()
     {
         Sequence sequence = DOTween.Sequence();
@@ -76,6 +95,10 @@ public class Target : MonoBehaviour
         sequence.OnComplete(() => _returnToPoolEvent.RaiseEvent(this));
     }
 
+
+    /// <summary>
+    /// appear up from under the water and swing up and down
+    /// </summary>
     private void AppearAndSwing()
     {
         if (UnityEngine.Random.Range(0, 2) == 1)
@@ -94,6 +117,9 @@ public class Target : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// slide horizontally in a specified direction
+    /// </summary>
     private void Slide()
     {
         transform.DOLocalMoveX(transform.localPosition.x + _direction * 15, 15 / _targetDataOS.SlideSpeed).SetEase(Ease.Linear);

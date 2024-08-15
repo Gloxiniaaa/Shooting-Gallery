@@ -36,6 +36,12 @@ public class TargetSpawner : MonoBehaviour
         _returnToPoolEvent.OnEventRaised += Release;
     }
 
+
+    /// <summary>
+    /// shuffle all the available spawn pos from SpawnConfig.
+    /// Then get an amount of "_nbTargetEachWave" targets from pool,
+    /// loop and respectively assgin them a spawn position
+    /// </summary>
     private void Spawn()
     {
         _startASpawnWaveEvent.RaiseEvent(_nbTargetEachWave);
@@ -49,6 +55,12 @@ public class TargetSpawner : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Deactivate the target and return it to the pool.
+    /// Check if all target of this spawnwave have returned? then start a new spawn wave
+    /// </summary>
+    /// <param name="target">the target you want it to return to pool</param>
     private void Release(Target target)
     {
         target.gameObject.SetActive(false);

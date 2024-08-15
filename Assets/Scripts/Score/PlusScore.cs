@@ -12,6 +12,11 @@ public class PlusScore : MonoBehaviour
         PlayEffect();
     }
 
+
+    /// <summary>
+    /// Play the appear and disappear animation.
+    /// Deactivate itself when finish.
+    /// </summary>
     private void PlayEffect()
     {
         transform.localScale = Vector3.zero;

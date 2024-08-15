@@ -22,6 +22,10 @@ public class StartGame : MonoBehaviour
         OnShot();
     }
 
+
+    /// <summary>
+    /// trigger the start game event then play disappear animation 
+    /// </summary>
     public void OnShot()
     {
         if (!_isShot)

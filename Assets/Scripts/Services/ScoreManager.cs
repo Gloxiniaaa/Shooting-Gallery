@@ -44,6 +44,11 @@ public class ScoreManager : MonoBehaviour
         _numTargetShot = 0;
     }
 
+
+    /// <summary>
+    ///  Add up to the current score an amount of _scoreEachShot multiplied by the number of targets that have been shot.
+    /// </summary>
+    /// <param name="target">just to match the callback, has no use in this function</param>
     private void AddScore(Target target)
     {
         _numTargetShot++;
@@ -51,6 +56,12 @@ public class ScoreManager : MonoBehaviour
         _scoreText.text = _score.ToString();
     }
 
+
+    /// <summary>
+    /// Get plusScoreEffect from pool and spawn it at the target 's position.
+    /// Also play the sfx
+    /// </summary>
+    /// <param name="target"></param>
     private void SpawnPlusScoreEffect(Target target)
     {
         PlaySFX();

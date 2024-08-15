@@ -35,6 +35,10 @@ public class SpawnConfigSO : ScriptableObject
         ShufflePos();
     }
 
+
+    /// <summary>
+    /// shuffle the spawnPositions array so that eveytime spawner needs the positions, it ll get them randomly
+    /// </summary>
     public void ShufflePos()
     {
         System.Random rng = new System.Random();
