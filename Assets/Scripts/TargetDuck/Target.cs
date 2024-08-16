@@ -52,16 +52,16 @@ public class Target : MonoBehaviour
         Slide();
     }
 
-    private void OnMouseDown()
-    {
-        OnShot();
-    }
+    // private void OnMouseDown()
+    // {
+    //     OnShot();
+    // }
 
 
     /// <summary>
     /// if has not been shot, then trigger "_shotATargetEvent", play shot audio, then play the disappear animation
     /// </summary>
-    private void OnShot()
+    public void OnShot()
     {
         if (!_isShot)
         {

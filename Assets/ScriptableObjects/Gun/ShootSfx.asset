@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c74f105887d493b4fa8615a8845883b9, type: 3}
-  m_Name: CameraShakeSO
+  m_Script: {fileID: 11500000, guid: c34dd041ba10edd47907b6317348829c, type: 3}
+  m_Name: ShootSfx
   m_EditorClassIdentifier: 
-  Duration: 0.2
-  Strength: 0.1
-  Vibrato: 10
-  Randomness: 80
+  _audioClips:
+  - {fileID: 8300000, guid: ba49fa74704cc9b49b9096114cd62232, type: 3}
+  Volume: 0.3
