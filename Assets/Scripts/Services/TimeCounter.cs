@@ -7,18 +7,21 @@ public class TimeCounter : MonoBehaviour
     [SerializeField] private int _initialTimer;
     private int _countDown = 0;
 
+    [SerializeField] private AudioGroupSO _TimesUpSfx;
+
     [Header("Broadcast on channel:")]
-    [SerializeField] private VoidEventChannelSO TimesUpEvent;
+    [SerializeField] private VoidEventChannelSO _timesUpEvent;
+    [SerializeField] private AudioEventChannelSO _sfxChannel;
 
 
     [Header("Listen on channel:")]
-    [SerializeField] private VoidEventChannelSO StartGameEvent;
+    [SerializeField] private VoidEventChannelSO _startGameEvent;
 
     private void OnEnable()
     {
         _countDown = _initialTimer;
         TimerText.text = _countDown.ToString();
-        StartGameEvent.OnEventRaised += CountDown;
+        _startGameEvent.OnEventRaised += CountDown;
     }
 
     private void CountDown()
@@ -32,13 +35,14 @@ public class TimeCounter : MonoBehaviour
         TimerText.text = _countDown.ToString();
         if (_countDown == 0)
         {
-            TimesUpEvent.RaiseEvent();
+            _sfxChannel.RaiseEvent(_TimesUpSfx);
+            _timesUpEvent.RaiseEvent();
             CancelInvoke();
         }
     }
 
     private void OnDisable()
     {
-        StartGameEvent.OnEventRaised -= CountDown;
+        _startGameEvent.OnEventRaised -= CountDown;
     }
 }

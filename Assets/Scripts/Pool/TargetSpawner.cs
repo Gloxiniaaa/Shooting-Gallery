@@ -22,8 +22,11 @@ public class TargetSpawner : MonoBehaviour
     [Header("Listen on channel:")]
     [SerializeField] private VoidEventChannelSO _startGameEvent;
     [SerializeField] private TargetEventChannelSO _returnToPoolEvent;
+    [SerializeField] private VoidEventChannelSO _timesUpEvent;
+
 
     private int _numCurrentTargetAppear;
+    private bool _canSpawn = true;
 
     private void Awake()
     {
@@ -34,6 +37,7 @@ public class TargetSpawner : MonoBehaviour
     {
         _startGameEvent.OnEventRaised += Spawn;
         _returnToPoolEvent.OnEventRaised += Release;
+        _timesUpEvent.OnEventRaised += StopSpawning;
     }
 
 
@@ -44,14 +48,17 @@ public class TargetSpawner : MonoBehaviour
     /// </summary>
     private void Spawn()
     {
-        _startASpawnWaveEvent.RaiseEvent(_nbTargetEachWave);
-        _numCurrentTargetAppear = _nbTargetEachWave;
-        _spawnConfig.ShufflePos();
-        for (int i = 0; i < _nbTargetEachWave; ++i)
+        if (_canSpawn)
         {
-            Target target = _pool.GetAnInstance();
-            target.gameObject.SetActive(true);
-            target.Spawn(_spawnConfig.spawnPositions[i]);
+            _startASpawnWaveEvent.RaiseEvent(_nbTargetEachWave);
+            _numCurrentTargetAppear = _nbTargetEachWave;
+            _spawnConfig.ShufflePos();
+            for (int i = 0; i < _nbTargetEachWave; ++i)
+            {
+                Target target = _pool.GetAnInstance();
+                target.gameObject.SetActive(true);
+                target.Spawn(_spawnConfig.spawnPositions[i]);
+            }
         }
     }
 
@@ -72,9 +79,15 @@ public class TargetSpawner : MonoBehaviour
         }
     }
 
+    private void StopSpawning()
+    {
+        _canSpawn = false;
+    }
+
     private void OnDisable()
     {
         _startGameEvent.OnEventRaised -= Spawn;
         _returnToPoolEvent.OnEventRaised -= Release;
+        _timesUpEvent.OnEventRaised -= StopSpawning;
     }
 }

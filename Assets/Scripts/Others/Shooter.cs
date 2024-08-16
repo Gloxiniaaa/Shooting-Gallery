@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour
@@ -21,6 +22,7 @@ public class Shooter : MonoBehaviour
 
     [Header("Listen on channel:")]
     [SerializeField] private VoidEventChannelSO StartGameEvent;
+    [SerializeField] private VoidEventChannelSO TimesUpEvent;
 
     private void Awake()
     {
@@ -32,12 +34,18 @@ public class Shooter : MonoBehaviour
         _numBulletRemains = _bulletAmount;
         _bulletText.text = _numBulletRemains.ToString();
         StartGameEvent.OnEventRaised += AlowShooting;
+        TimesUpEvent.OnEventRaised += StopShooting;
     }
 
 
     private void AlowShooting()
     {
         _canShoot = true;
+    }
+
+    private void StopShooting()
+    {
+        _canShoot = false;
     }
 
     private void Update()
@@ -92,5 +100,6 @@ public class Shooter : MonoBehaviour
     private void OnDisable()
     {
         StartGameEvent.OnEventRaised -= AlowShooting;
+        TimesUpEvent.OnEventRaised -= StopShooting;
     }
 }

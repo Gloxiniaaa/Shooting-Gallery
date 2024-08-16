@@ -1602,6 +1602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 429701522}
   - component: {fileID: 429701523}
+  - component: {fileID: 429701524}
   m_Layer: 0
   m_Name: curtain_straight
   m_TagString: Untagged
@@ -1618,7 +1619,7 @@ Transform:
   m_GameObject: {fileID: 429701521}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.35, z: 0}
+  m_LocalPosition: {x: 0, y: 11.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1670,12 +1671,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 20, y: 1.25}
+  m_Size: {x: 20, y: 15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &429701524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429701521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e752a5d17dbbd3440a197a91e3cbf2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementDuartion: 2
+  _timesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
 --- !u!1 &434080210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,7 +3966,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4030,6 +4045,7 @@ MonoBehaviour:
   _startASpawnWaveEvent: {fileID: 11400000, guid: 175474d95c1f505499010902711d96a9, type: 2}
   _startGameEvent: {fileID: 11400000, guid: b8551611a6bc7284b92b0da866ea0d33, type: 2}
   _returnToPoolEvent: {fileID: 11400000, guid: 6ede477d369bf2c458c894d492601a39, type: 2}
+  _timesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
 --- !u!4 &1108808881
 Transform:
   m_ObjectHideFlags: 0
@@ -4679,8 +4695,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 429138334}
   _initialTimer: 60
-  TimesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
-  StartGameEvent: {fileID: 11400000, guid: b8551611a6bc7284b92b0da866ea0d33, type: 2}
+  _TimesUpSfx: {fileID: 11400000, guid: dff78c090d9cf934d98d884bdb912167, type: 2}
+  _timesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
+  _sfxChannel: {fileID: 11400000, guid: 07c0624d0b8689c4eb18cbc63ba1115c, type: 2}
+  _startGameEvent: {fileID: 11400000, guid: b8551611a6bc7284b92b0da866ea0d33, type: 2}
 --- !u!1 &1348742843
 GameObject:
   m_ObjectHideFlags: 0
@@ -7395,6 +7413,7 @@ MonoBehaviour:
   _outOfBulletSfx: {fileID: 11400000, guid: cb9a3dc0207432b40ae3182626b89aa1, type: 2}
   SfxChannel: {fileID: 11400000, guid: 07c0624d0b8689c4eb18cbc63ba1115c, type: 2}
   StartGameEvent: {fileID: 11400000, guid: b8551611a6bc7284b92b0da866ea0d33, type: 2}
+  TimesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
 --- !u!212 &1970526559
 SpriteRenderer:
   m_ObjectHideFlags: 0
