@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class TimeCounter : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI TimerText;
+    [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private int _initialTimer;
     private int _countDown = 0;
 
-    [SerializeField] private AudioGroupSO _TimesUpSfx;
+    [SerializeField] private AudioGroupSO _timesUpSfx;
 
     [Header("Broadcast on channel:")]
     [SerializeField] private VoidEventChannelSO _timesUpEvent;
@@ -20,7 +20,7 @@ public class TimeCounter : MonoBehaviour
     private void OnEnable()
     {
         _countDown = _initialTimer;
-        TimerText.text = _countDown.ToString();
+        _timerText.text = _countDown.ToString();
         _startGameEvent.OnEventRaised += CountDown;
     }
 
@@ -32,10 +32,10 @@ public class TimeCounter : MonoBehaviour
     private void Tick()
     {
         _countDown--;
-        TimerText.text = _countDown.ToString();
+        _timerText.text = _countDown.ToString();
         if (_countDown == 0)
         {
-            _sfxChannel.RaiseEvent(_TimesUpSfx);
+            _sfxChannel.RaiseEvent(_timesUpSfx);
             _timesUpEvent.RaiseEvent();
             CancelInvoke();
         }

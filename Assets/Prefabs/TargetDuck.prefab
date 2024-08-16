@@ -90,7 +90,7 @@ MonoBehaviour:
   _shotATargetEvent: {fileID: 11400000, guid: f15d9c445717a9c46891e4f283e2bb3b, type: 2}
   _returnToPoolEvent: {fileID: 11400000, guid: 6ede477d369bf2c458c894d492601a39, type: 2}
   _sfxChannel: {fileID: 11400000, guid: 07c0624d0b8689c4eb18cbc63ba1115c, type: 2}
-  TimesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
+  _timesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
 --- !u!50 &5613281833343417518
 Rigidbody2D:
   serializedVersion: 4

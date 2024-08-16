@@ -13,7 +13,7 @@ public class StartGame : MonoBehaviour
     [SerializeField] private AudioGroupSO _onShotAudios;
 
     [Header("broadcast on channel:")]
-    [SerializeField] private VoidEventChannelSO StartGameEvent;
+    [SerializeField] private VoidEventChannelSO _startGameEvent;
     [SerializeField] private AudioEventChannelSO _sfxChannel;
     private bool _isShot = false;
 
@@ -31,7 +31,7 @@ public class StartGame : MonoBehaviour
         if (!_isShot)
         {
             _isShot = true;
-            StartGameEvent.RaiseEvent();
+            _startGameEvent.RaiseEvent();
             _sfxChannel.RaiseEvent(_onShotAudios);
             FlipAndDisappear();
         }

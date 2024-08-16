@@ -18,10 +18,14 @@ public class Curtain : MonoBehaviour
         _closePos = transform.position + Vector3.down * 10;
     }
 
+    private void Start()
+    {
+        OpenCurtain();
+    }
+
     private void OnEnable()
     {
         _timesUpEvent.OnEventRaised += CloseCurtain;
-        OpenCurtain();
     }
 
     [ContextMenu("Open curtain")]

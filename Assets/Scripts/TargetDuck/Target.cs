@@ -17,14 +17,14 @@ public class Target : MonoBehaviour
     [SerializeField] private AudioEventChannelSO _sfxChannel;
 
     [Header("Listen on channel")]
-    [SerializeField] private VoidEventChannelSO TimesUpEvent;
+    [SerializeField] private VoidEventChannelSO _timesUpEvent;
 
 
 
     private void OnEnable()
     {
         Initialize();
-        TimesUpEvent.OnEventRaised += FlipAndDisappear;
+        _timesUpEvent.OnEventRaised += FlipAndDisappear;
     }
 
 
@@ -133,6 +133,6 @@ public class Target : MonoBehaviour
     private void OnDisable()
     {
         transform.DOKill();
-        TimesUpEvent.OnEventRaised -= FlipAndDisappear;
+        _timesUpEvent.OnEventRaised -= FlipAndDisappear;
     }
 }
