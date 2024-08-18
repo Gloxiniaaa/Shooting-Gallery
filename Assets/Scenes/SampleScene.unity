@@ -2275,7 +2275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e752a5d17dbbd3440a197a91e3cbf2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementDuartion: 2
+  _movementDuartion: 1.5
   _timesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}
 --- !u!1 &434080210
 GameObject:
@@ -5912,7 +5912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 429138334}
-  _initialTimer: 10
+  _initialTimer: 60
   _timesUpSfx: {fileID: 11400000, guid: dff78c090d9cf934d98d884bdb912167, type: 2}
   _clockTickSfx: {fileID: 11400000, guid: 7c750d474b5c9b744bc5e7009401aa88, type: 2}
   _timesUpEvent: {fileID: 11400000, guid: 3f77f45235cbded4b8227153e20aaf14, type: 2}

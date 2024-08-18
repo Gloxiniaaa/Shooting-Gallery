@@ -40,7 +40,7 @@ public class UIManger : MonoBehaviour
     private void ShowFinalScore()
     {
         _endgameBoard.transform.localScale = Vector2.zero;
-        _finalScore.text = ScoreManager._score.ToString();
+        _finalScore.text = ScoreManager.Score.ToString();
         _endgameBoard.SetActive(true);
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(1f);

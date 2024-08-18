@@ -8,8 +8,6 @@ public class SpawnConfigSO : ScriptableObject
     public float[] SpawnPosX;
     public float[] SpawnPosY;
     public SpawnPosition[] spawnPositions { get; private set; }
-    public float TargetLifeTime;
-    public float IntervalBetweenSpawnWaves;
 
 
     private void OnEnable()

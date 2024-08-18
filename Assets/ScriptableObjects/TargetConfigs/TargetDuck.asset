@@ -26,6 +26,6 @@ MonoBehaviour:
   FlipDuration: 0.3
   EndFlipRotation: {x: 0, y: 180, z: 0}
   Height: 2
-  SlideSpeed: 1.5
+  SlideSpeed: 1.8
   SwingRange: 0.5
   SwingDuration: 0.5

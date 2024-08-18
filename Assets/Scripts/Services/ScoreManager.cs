@@ -5,7 +5,7 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int _score { get; private set; }
+    public static int Score { get; private set; }
     private int _numTargetShot = 0;
     private int _scoreEachShot = 10;
     [SerializeField] private TextMeshProUGUI _scoreText;
@@ -34,6 +34,7 @@ public class ScoreManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Score = 0;
         _startASpawnWaveEvent.OnEventRaised += AssignNewMission;
         _shotATargetEvent.OnEventRaised += AddScore;
         _shotATargetEvent.OnEventRaised += SpawnPlusScoreEffect;
@@ -52,8 +53,8 @@ public class ScoreManager : MonoBehaviour
     private void AddScore(Target target)
     {
         _numTargetShot++;
-        _score += _scoreEachShot * _numTargetShot;
-        _scoreText.text = _score.ToString();
+        Score += _scoreEachShot * _numTargetShot;
+        _scoreText.text = Score.ToString();
     }
 
 
