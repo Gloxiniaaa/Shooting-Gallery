@@ -32,7 +32,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void OnDisable()
     {
-        _sfxEvent.OnEventRaised += PlayAudio;
-        _sfxVolumnEvent.OnEventRaised += ChangeVolumn;
+        _sfxEvent.OnEventRaised -= PlayAudio;
+        _sfxVolumnEvent.OnEventRaised -= ChangeVolumn;
     }
 }

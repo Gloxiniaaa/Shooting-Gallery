@@ -5,7 +5,7 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int _score;
+    public static int _score { get; private set; }
     private int _numTargetShot = 0;
     private int _scoreEachShot = 10;
     [SerializeField] private TextMeshProUGUI _scoreText;

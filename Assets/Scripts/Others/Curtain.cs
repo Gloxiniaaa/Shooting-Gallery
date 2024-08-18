@@ -44,7 +44,7 @@ public class Curtain : MonoBehaviour
     {
         transform.position = _openPos;
         Sequence sequence = DOTween.Sequence();
-        sequence.AppendInterval(1);
+        sequence.AppendInterval(0.5f);
         sequence.Append(transform.DOLocalMoveY(_closePos.y, _movementDuartion).SetEase(Ease.InOutBack));
     }
 
