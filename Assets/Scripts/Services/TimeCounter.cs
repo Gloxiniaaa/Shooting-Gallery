@@ -8,6 +8,7 @@ public class TimeCounter : MonoBehaviour
     private int _countDown = 0;
 
     [SerializeField] private AudioGroupSO _timesUpSfx;
+    [SerializeField] private AudioGroupSO _clockTickSfx;
 
     [Header("Broadcast on channel:")]
     [SerializeField] private VoidEventChannelSO _timesUpEvent;
@@ -38,6 +39,10 @@ public class TimeCounter : MonoBehaviour
             _sfxChannel.RaiseEvent(_timesUpSfx);
             _timesUpEvent.RaiseEvent();
             CancelInvoke();
+        }
+        else if (_countDown == 4)
+        {
+            _sfxChannel.RaiseEvent(_clockTickSfx);
         }
     }
 
